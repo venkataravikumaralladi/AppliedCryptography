@@ -5,6 +5,8 @@ Author: Venkata Ravi K A
 
 """
 from typing import Dict
+import cProfile # cprofile is library that provides deterministi profiling.
+
 
 
 class CessarCipher:
@@ -76,11 +78,12 @@ class CessarCipher:
 
 if __name__ == '__main__':
     # breakeing the ceaser cipher is easy because it has only 26 keys. 
+    # Here keys are 26 because we can add numbers from 0 to 25 to each letter.
     # Below code is done by enemy.
     ceaser_ciph = CessarCipher()
     key = ceaser_ciph.generate_encr_key(3)
     print(key)
-    message = 'YOU ARE AWESOME'
+    message = 'HELLO WORLD'
     cipher = ceaser_ciph.encrypt(message)
     
     # now trying to break the cipher
@@ -89,6 +92,28 @@ if __name__ == '__main__':
         dkey = ceaser_ciph.generate_encr_key(i)
         message = ceaser_ciph.encrypt(cipher)
         print(message)    
+        
+    # Let us evaluate time required to perform various combination of keys
+    # which is permuation.
+    def faculty(n):
+    	if n <= 1:
+    		return 1
+    	else:
+    		return faculty(n-1) * n
+        
+    
+    def counter(n):
+    	cnt = 0
+    	for i in range(n):
+    		cnt += 1
+        
+    	return cnt
+    print('vlaue of cnt is :', counter(faculty(11)))
+    cProfile.run("counter(faculty(11))")
+    
+    
+
+    
     
     
 
