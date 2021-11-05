@@ -83,11 +83,13 @@ if __name__ == '__main__':
     ceaser_ciph = CessarCipher()
     key = ceaser_ciph.generate_encr_key(3)
     print(key)
+   
     message = 'HELLO WORLD'
     cipher = ceaser_ciph.encrypt(message)
+    print('Message ', message, 'encrypted to', cipher)
     
     # now trying to break the cipher
-    print(cipher)
+    print('*** breaking cipher ***')
     for i in range(26):
         dkey = ceaser_ciph.generate_encr_key(i)
         message = ceaser_ciph.encrypt(cipher)
