@@ -23,3 +23,10 @@ Modern Crpytography basic idea is based on `XOR` function. It has interesting pr
 2. `Stream cipher (vrk_stream_cipher.py`: A stream cipher is like a OTP but don't have requirments like OTP. So stream cipher does not use TRUE randomness and can re-use keystream. Example of stream ciphers are A5/1 (G2 encryption) - 54 bits, A5/2 (export version)-17 bits, RC4 (WEP, SSL)-40 TO 2048 bits.  Stream cipher uses Pseudo random generator. In the implementation I used Linear Congruential generator (LCG) Ref: https://en.wikipedia.org/wiki/Linear_congruential_generator which is implemented in `C` language as reference.  
 One great advantage of stream cipher is that if a bit is flipped by poor connection only that bit will be affected in the decryption.
 Disadvantage of stream ciphers are stream ciphers cannot be authenticated, low entropy in pesudo-randomness, and reusability of key to name a few.
+
+3. `DES cipher (des_usage.py and double_des_usage.py `:  Data Encryption Standard (DES): This is 64 bit block and 56 bit key size. We use DES algorithm which is already implemented in py_DES.py rather than implementing by ourselves. DES has a 56-bit key (the key is actually 64 bits, but every 8th bit is a parity check; so, only 56 of the 64 bits are meaningful).       
+        Padding related notes in DES: DES also adds padding to encrypted message. DES algorithm requires that the input data to be 8-byte blocks. If you want to encrypt a text message that is not multiples of 8-byte blocks, the text message must be padded with additional bytes to make the text message to be multiples of 8-byte blocks. PKCS stands for public key cryptography standards
+        
+      Double DES: basically using DES algorithm twice. This is vulnerable to meet-in-the-middle attack. This can be fixed by using 3-DES algorithm
+
+
