@@ -126,7 +126,7 @@ def modify(cipher:str)->str:
     modify = [0]*len(cipher)
     modify[10] = ord(' ') ^ ord('1')
     modify[11] = ord(' ') ^ ord('0')
-    modify[12] = ord('1') ^ ord('1')
+    modify[12] = ord('1') ^ ord('0')
     return bytes([modify[i] ^ cipher[i] for i in range(len(cipher))])
 
 alice_message = "Give Bob:    10$ and send them to him"
