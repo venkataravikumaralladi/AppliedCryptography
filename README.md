@@ -29,4 +29,4 @@ Disadvantage of stream ciphers are stream ciphers cannot be authenticated, low e
         
       Double DES: basically using DES algorithm twice. This is vulnerable to meet-in-the-middle attack. This can be fixed by using 3-DES algorithm
 
-
+4. `Diffie-Hellman cipher (diffie_hellman_analysis.py `:  Key exchange between two parties in secured way is major challenge in symmetric key encryption algorithm. This is solved by idea provided by Diffie-Hellman algorithm which is based on discrete log problem which is hard to break. Diffie-Hellman algorithm idea is based on generator, modulus and prime numbers. A generator 'g' generates all the non-zero elements in the modulus. For example a generator 'g' modulus 7 will generate the elements 1,2,3,4,5, and 6 (but not in that order). The task is to find the smallest generator 'g' that generates all the elements 1,2,3,4,5 and 6 by calculating `g**0, g**1, g**2, g**3, g**4, g**5, and g**6`. In this example we can see that g=2 does not satisfy where as g=3 satisfies. Python implementation of primitives required for Diffie-Hellman and key generation is implemented in diffie_hellman_analysis.py
